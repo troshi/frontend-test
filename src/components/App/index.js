@@ -1,3 +1,7 @@
+import React from 'react';
+
+import Homepage from '../../views/Homepage';
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -17,6 +21,7 @@ function App() {
         >
           Learn React
         </a>
+        <Homepage />
       </header>
     </div>
   );
