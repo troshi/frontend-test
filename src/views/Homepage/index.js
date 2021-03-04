@@ -4,11 +4,13 @@ import {Container, Grid} from '@material-ui/core';
 
 import { Card, ErrorMessage } from '../../components';
 import api from '../../utils/api';
+import useStyles from './styles';
 
 export default function Homepage() {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const classes = useStyles();
 
   const fetchData = async() => {
     setLoading(true);
@@ -35,10 +37,10 @@ export default function Homepage() {
   console.log("POSTS",posts);
 
   return (
-    <Container>
-      <Grid container>
+    <Container className={classes.homepageWrapper}>
+      <Grid container spacing={4}>
         {posts.map((post)=>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} key={post.data.id}>
             <Card data={post.data} />
           </Grid>
         )}

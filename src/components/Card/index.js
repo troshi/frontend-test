@@ -1,42 +1,49 @@
 import React from 'react';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import {
+  Box,
+  Card,
+  CardActions,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  CardHeader,
+  Button,
+  Typography,
+} from '@material-ui/core';
+import ReactTimeAgo from 'react-time-ago';
 
 import useStyles from './styles';
 
-export default function MediaCard() {
+export default function MediaCard({data}) {
   const classes = useStyles();
-
+  const createdAt = new Date(data.created_utc * 1000);
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
+        <CardHeader
+          title={data.author}
+          subheader={<ReactTimeAgo date={createdAt} locale="en-US" />}
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Lizard
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
-          </Typography>
-        </CardContent>
+        <Box className={classes.actionArea}>
+          <CardMedia
+            className={classes.media}
+            image={data.thumbnail}
+            title={data.title}
+          />
+          <CardContent className={classes.mediaRight}>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {data.title}
+            </Typography>
+          </CardContent>
+        </Box>
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          Share
+          Dismiss post
         </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
+        <Typography variant="caption" align="right">
+          {data.num_comments} comments
+        </Typography>
       </CardActions>
     </Card>
   );
