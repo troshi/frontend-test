@@ -17,6 +17,7 @@ import useStyles from './styles';
 export default function MediaCard({data}) {
   const classes = useStyles();
   const createdAt = new Date(data.created_utc * 1000);
+
   return (
     <Card className={classes.root}>
       <CardActionArea>

@@ -13,7 +13,7 @@ export default function ErrorMessage() {
           <ErrorOutline />
         </p>
         <Typography variant='h5' align='center' color='secondary'>
-          Hubo un error, por favor vuelva a intentarlo.
+          There is an error, please try again.
         </Typography>
       </Box>
     </Container>

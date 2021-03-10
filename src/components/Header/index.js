@@ -12,7 +12,11 @@ export default function ButtonAppBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
+          <Typography
+            variant="h6"
+            className={classes.title}
+            align="center"
+          >
             Reddit Posts
           </Typography>
         </Toolbar>
