@@ -7,7 +7,7 @@ import Header from '../Header';
 
 export default function App(props) {
   const dispatch = useDispatch();
-  const actionData = useSelector(state => state.app.posts, []) || [];
+  const actionData = useSelector(state => state.app, []) || [];
 
   console.log("ACTION", actionData);
   useEffect(() => {
