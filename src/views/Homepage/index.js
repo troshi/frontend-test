@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import {Container, Grid} from '@material-ui/core';
+import { Container, Grid } from '@material-ui/core';
 
 import { Card, ErrorMessage } from '../../components';
 import api from '../../utils/api';
@@ -34,7 +34,7 @@ export default function Homepage() {
     return <ErrorMessage />;
   }
 
-  console.log("POSTS",posts);
+  console.log("POSTS", posts);
 
   return (
     <Container className={classes.homepageWrapper}>
